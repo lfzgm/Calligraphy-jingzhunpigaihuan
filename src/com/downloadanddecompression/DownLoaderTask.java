@@ -38,7 +38,7 @@ public class DownLoaderTask extends AsyncTask<Void, Integer, Long> {
 		}
 		else{
 			mDialog = null;
-		}
+		} 
 		
 		try {
 			mUrl = new URL(url);
