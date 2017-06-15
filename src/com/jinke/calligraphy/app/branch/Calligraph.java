@@ -2252,7 +2252,7 @@ public class Calligraph extends RelativeLayout implements OnPanelListener,
 		// 新建button对象conceptation
 		// conceptation = new Button(context);
 		addButton(conceptation, insideLY + 2 * blanky / 5, insideLX - band,
-				insideLY + 3 * blanky / 5, insideLX - halfband, "感念混淆",
+				insideLY + 3 * blanky / 5, insideLX - halfband, "概念混淆",
 				0xff0000ff, 0x55135901);
 
 		// 注册监听，对base按钮按下响应
