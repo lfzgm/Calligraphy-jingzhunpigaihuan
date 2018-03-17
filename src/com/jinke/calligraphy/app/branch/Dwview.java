@@ -34,7 +34,7 @@ public class Dwview extends View {
 	 * 
 	 * 
 	 */
-	private int huabitoumingdu;	
+	private int huabitoumingdu;	//画笔透明度
 	private int color2;
 	
 	

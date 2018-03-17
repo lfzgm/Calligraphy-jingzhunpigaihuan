@@ -2295,7 +2295,7 @@ private  void inPutIPDialog(){
             }
         });
 
-        customizeDialog.show();
+      customizeDialog.show();
 
 	}
 

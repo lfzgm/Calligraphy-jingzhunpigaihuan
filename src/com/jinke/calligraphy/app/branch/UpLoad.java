@@ -51,7 +51,6 @@ public class UpLoad {
 	      Log.v("clickButton", ""+url);
 //	      HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 	      HttpURLConnection con=(HttpURLConnection)url.openConnection();    
-	      
 	     
 	           
 	      // 设置每次传输的流大小，可以有效防止手机因为内存不足崩溃
@@ -68,18 +67,19 @@ public class UpLoad {
 	      con.setRequestProperty("Content-Type",
 	          "multipart/form-data;boundary=" + boundary);
 //	      con.connect();
-
-	      DataOutputStream dos = new DataOutputStream(
+	     
+	      DataOutputStream dos =new DataOutputStream(
 	    		  con.getOutputStream());
+	      Log.v("clickButton","1");
 	      dos.writeBytes(twoHyphens + boundary + end);
 	      dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\"; filename=\""
-	          + srcPath.substring(srcPath.lastIndexOf("/") + 1)
+	          + srcPath.substring(srcPath.lastIndexOf("/") + 1) ///srcPath.substring(srcPath.lastIndexOf("/") + 1)获得上传文件的名字
 	          + "\""
 	          + end);
 	      dos.writeBytes(end);
-	      
+	     
 	      Log.v("clickButton", "执行过链接代码啦");
-	      
+//	      Log.v("clickButton",con.getRequestMethod());
 	   //   Log.v("clickButton", ""+dos.toString());
 
 	      FileInputStream fis = new FileInputStream(file);
@@ -90,14 +90,14 @@ public class UpLoad {
 	      while ((count = fis.read(buffer)) != -1)
 	      {
 	   
-		      Log.v("clickButton", "++++"+buffer.length);
-		      Log.v("clickButton", buffer.toString());
+//		      Log.v("clickButton", "++++"+buffer.length);
+//		      Log.v("clickButton", buffer.toString());
 	   dos.write(buffer, 0, count);
 	  
 	      //  Log.v("clickButton", "++++"+dos.size());
 	      }
 	      
-	      Log.v("clickButton","++++"+dos.toString());
+//	      Log.v("clickButton","++++"+dos.toString());
 	      fis.close();
 	      Log.v("clickButton","哈哈1");
 	      dos.writeBytes(end);
@@ -107,10 +107,14 @@ public class UpLoad {
 	      dos.flush();
 //	      Log.v("clickButton", "状态码："+con.getResponseCode());
 	      InputStream is = con.getInputStream();
+	      Log.v("clickButton","1");
 	      InputStreamReader isr = new InputStreamReader(is, "utf-8");
+	      Log.v("clickButton","2");
 	      BufferedReader br = new BufferedReader(isr);
+	      
 	      String result = br.readLine();
-	      Log.i("clickButton",result);   
+	    
+              Log.i("clickButton",result);   
 //          Toast.makeText(this, "成功了", Toast.LENGTH_SHORT).show();
 //	      Toast.makeText(, result, Toast.LENGTH_LONG).show();
 	      
@@ -127,7 +131,7 @@ public class UpLoad {
 //           Log.i("clickButton",line);            }
 	      
 	      
-	      
+	      Log.v("clickButton","3");
 	      
 	      dos.close();
 	      is.close();
